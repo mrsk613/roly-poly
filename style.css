@@ -1,0 +1,456 @@
+/* ==========================
+   共通
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+main {
+    background: #37474F;
+}
+
+h2 {
+    text-align: center;
+    font-family: '游明朝';
+    font-size: 3rem;
+    color: #FFFDF7;
+}
+
+p {
+    font-size: 1.6rem;
+    letter-spacing: .1em;
+    line-height: 2.5rem;
+}
+
+.fs-120 {
+    font-size: 1.8rem;
+}
+
+.fc-white {
+    color: #FFFDF7;
+}
+
+.ta-left {
+    text-align: left;
+}
+
+.ta-right {
+    text-align: right;
+}
+
+.ta-center {
+    text-align: center;
+}
+
+.con980 {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.pt-10 {
+    padding-top: 10px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pt-30 {
+    padding-top: 30px;
+}
+
+.pt-40 {
+    padding-top: 40px;
+}
+
+.pt-50 {
+    padding-top: 50px;
+}
+
+.pt-60 {
+    padding-top: 60px;
+}
+
+.pl-10 {
+    padding-left: 10px;
+}
+
+.pl-20 {
+    padding-left: 20px;
+}
+
+.pl-30 {
+    padding-left: 30px;
+}
+
+.pl-40 {
+    padding-left: 40px;
+}
+
+.pl-50 {
+    padding-left: 50px;
+}
+
+.pl-60 {
+    padding-left: 60px;
+}
+
+.pr-10 {
+    padding-right: 10px;
+}
+
+.pr-20 {
+    padding-right: 20px;
+}
+
+.pr-30 {
+    padding-right: 30px;
+}
+
+.pr-40 {
+    padding-right: 40px;
+}
+
+.pr-50 {
+    padding-right: 50px;
+}
+
+.pr-60 {
+    padding-right: 60px;
+}
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.pb-30 {
+    padding-bottom: 30px;
+}
+
+.pb-40 {
+    padding-bottom: 40px;
+}
+
+.pb-50 {
+    padding-bottom: 50px;
+}
+
+.pb-60 {
+    padding-bottom: 60px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.ml-30 {
+    margin-left: 30px;
+}
+
+.ml-40 {
+    margin-left: 40px;
+}
+
+.ml-50 {
+    margin-left: 50px;
+}
+
+.ml-60 {
+    margin-left: 60px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.mr-30 {
+    margin-right: 30px;
+}
+
+.mr-40 {
+    margin-right: 40px;
+}
+
+.mr-50 {
+    margin-right: 50px;
+}
+
+.mr-60 {
+    margin-right: 60px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+/* ==========================
+   box
+========================== */
+
+.flex-wrap {
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.flex-1-2 {
+    display: inline-block;
+    width: 50%;
+}
+
+.flex-1-3 {
+    display: inline-block;
+    width: 33.3%;
+}
+
+.flex-2-3 {
+    display: inline-block;
+    width: 66.6%;
+}
+
+.box-2 {
+    display: inline-block;
+    width: 50%;
+    height: 100vh;
+}
+
+/* ==========================
+   header
+========================== */
+
+header {
+    width: 100%;
+    background: rgba(13, 20, 34, 0.8);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+header .logo {
+    color: #FFFDF7;
+    font-family: '游明朝';
+    font-size: 3rem;
+    padding: 10px 0;
+    text-align: left;
+}
+
+.gnavi {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.gnavi li a {
+    display: block;
+    padding: 0px 30px;
+    text-decoration: none;
+    font-family: '游明朝';
+    color: #FFFDF7;
+    font-size: 3rem;
+}
+
+.gnavi li a {
+    position: relative;
+}
+
+.gnavi li a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: #FFFDF7;
+    transition: all .3s;
+    transform: scale(0, 1);
+    transform-origin: center top;
+}
+
+.gnavi li a:hover::after {
+    transform: scale(1, 1);
+}
+
+.gnavi .current {
+    color:#FF9E80;
+}
+
+.mv {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.mv .serif01 {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    letter-spacing: .2em;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    color: #FFFDF7;
+    font-family: '游明朝';
+    font-size: 6rem;
+}
+
+.mv .serif02 {
+    position: absolute;
+    top: 55%;
+    right: 15%;
+    letter-spacing: .2em;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    color: #FFFDF7;
+    font-family: '游明朝';
+    font-size: 6rem;
+}
+
+.mv .logo {
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    color: #FFFDF7;
+    text-shadow: 3px 3px 10px #000;
+    font-family: '游明朝';
+    font-size: 8rem;
+}
+
+.mv img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================
+   動き関連
+========================== */
+
+.fadeIn {
+    animation-name: fadeInAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInAnime {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================
+   news
+========================== */
+
+#news {
+    padding-top: 100px;
+    height: 100vh;
+}
+
+/* ==========================
+   concept
+========================== */
+
+#concept {
+    padding-top: 100px;
+}
+
+#concept .conseptimage {
+    background-image: url('img/consept.jpg');
+    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.conceptBox {
+    padding: 20px;
+}
+
+.concepttext {
+    margin-top: 120px;
+}
+
+/* ==========================
+   footer
+========================== */
+
+footer {
+    background: #37474F;
+    text-align: center;
+    padding: 15px 0;
+}
+
+#footerArea {
+    color: #FFFDF7;
+    font-size: 1.6rem;
+    font-family: '游明朝';
+}
