@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Roly-Poly</title>
 </head>
@@ -29,12 +31,27 @@
         <p class="logo">Roly-Poly</p>
         <p class="serif01">また耐えられない</p>
         <p class="serif02">夜に会おう</p>
-        <img src="img/top.jpg" alt="メインビジュアル">
+        <ul class="slider">
+            <li class="slider-item slider-item01"></li>
+            <li class="slider-item slider-item02"></li>
+            <li class="slider-item slider-item03"></li>
+            <li class="slider-item slider-item04"></li>
+        </ul>
     </div>
     <main>
         <section id="news">
             <div class="con980">
                 <h2 class="fadeInTrigger">News</h2>
+                <ul class="newsline fadeInTrigger">
+                    <li><span class="day">2022.02.07</span><span class="title"><a href="#">2月 季節限定商品のご案内</a></span></li>
+                    <li><span class="day">2021.12.29</span><span class="title"><a href="#">営業時間変更のお知らせ</a></span></li>
+                    <li><span class="day">2021.12.02</span><span class="title"><a href="#">12月 季節限定商品のご案内</a></span>
+                    </li>
+                    <li><span class="day">2021.11.11</span><span class="title"><a
+                                href="#">緊急事態宣言による営業時間変更のお知らせ</a></span></li>
+                    <li><span class="day">2021.11.09</span><span class="title"><a href="#">11月 季節限定商品のご案内</a></span>
+                    </li>
+                </ul>
             </div>
         </section>
         <section id="concept">
@@ -52,17 +69,41 @@
             </div>
         </section>
         <section id="access">
-            <h2>Access</h2>
-            <div class="flex-wrap">
-                <div class="flex-1-2"></div>
-                <div class="flex-1-2"></div>
+            <h2 class="fadeInTrigger">Access</h2>
+            <div class="con980 fadeInTrigger">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.194896057188!2d139.64705571525909!3d35.69682128019067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f261c91cfdfb%3A0x9510f7e0978521df!2z44CSMTY2LTAwMTEg5p2x5Lqs6YO95p2J5Lim5Yy65qKF6YeM77yR5LiB55uu77yU4oiS77yU77yR!5e0!3m2!1sja!2sjp!4v1644207699916!5m2!1sja!2sjp"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="flex-wrap pt-30">
+                    <div class="flex-1-2 pl-20">
+                        <p class="fc-white">〒166-0011<br>
+                            東京都杉並区梅里1-4-41<br>
+                            新高円寺midnightビル B1F</p>
+                        <p class="fc-white">
+                            <a href="tel:03-1234-5678">03-1234-5678</a>
+                        </p>
+                    </div>
+                    <div class="flex-1-2 pr-20">
+                        <dl>
+                            <dt>OPEN</dt>
+                            <dd>23:00
+                            <dd>
+                            <dt>CLOSE</dt>
+                            <dd>6:00 (L.O 5:30)
+                            <dd>
+                        </dl>
+                    </div>
+                </div>
             </div>
         </section>
+        <p id="page-top"><a href="#"><i class="fas fa-angle-up fa-5x"></i></a></p>
     </main>
-    <footer id="footerArea"></footer>
+    <footer id="footerArea">
+    </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </body>
 
