@@ -1,16 +1,104 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="main.js"></script>
     <title>info|Roly-Poly</title>
 </head>
+
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header>
+        <div id="pc_header" class="flex-wrap">
+            <div class="flex-1-2">
+                <p class="logo"><a href="index.html">Roly-Poly</a></p>
+            </div>
+            <div class="flex-1-2">
+                <ul class="gnavi">
+                    <li><a href="index.html#concept">Consept</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="index.html#access">Access</a></li>
+                    <li><a href="info.html">Info</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="openbtn"><span></span><span></span><span></span></div>
+        <nav id="g-nav">
+            <div id="g-nav-list">
+                <ul>
+                    <li><a href="index.html#concept">Consept</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="index.html#access">Access</a></li>
+                    <li><a href="info.html">Info</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="circle-bg"></div>
+    </header>
+    <div class="info_top">
+        <h1>Info</h1>
+    </div>
+    <main>
+        <p class="pt-20 pl-40 pr-40 fc-white">悩みがある、話をしたいけど話せる人がいない、誰にも言えないナイショの話など、何かあればこちらからお送りください。<br>
+            誰にも話しませんし、見ていないかもしれません。<br>
+            こっそり打ち明けてすっきりしてください。<br>
+            そのほか、通常のお問い合わせなどもこちらより、お送りください。<br>
+            ※法に触れるものに関しては、警察等に相談させていただくことがございます。ご注意ください。
+        </p>
+        <form action="http://www2.tba.t-com.ne.jp/cgi-bin/form.cgi" method="post">
+            <table class="form">
+                <tr>
+                    <th>お名前</th>
+                    <td class="cp_iptxt">
+                        <label class="ef">
+                            <input type="text" placeholder="お名前">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カテゴリ</th>
+                    <td class="cp_iptxt">
+                        <select name="カテゴリ">
+                            <option>選択してください。</option>
+                            <option value="お悩み相談（返信不要）">お悩み相談（返信不要）</option>
+                            <option value="お悩み相談（要返信）">お悩み相談（要返信）</option>
+                            <option value="お問い合わせ">お問い合わせ</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td class="cp_iptxt">
+                        <label class="ef">
+                            <input type="text" name="email" placeholder="sample@sample.com">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>メッセージ</th>
+                    <td class="cp_iptxt">
+                        <label class="ef">
+                            <textarea name="example" cols="150" rows="20">こちらにメッセージを入力してください。</textarea>
+                        </label>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="tomail" value="送信先のメールアドレス">
+            <input type="hidden" name="tosubj" value="メールの件名">
+            <input type="hidden" name="todelim" value="TAB">
+            <p class="ta-center"><input type="submit" value="送　信" class="button"><input type="reset" value="リセット" class="button"> </p>
+        </form>
+        <p id="page-top"><a href="#"><i class="fas fa-angle-up fa-5x"></i></a></p>
+    </main>
+    <footer class="pt-60" id="footerArea"></footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
 </body>
+
 </html>
