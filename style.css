@@ -13,6 +13,16 @@ main {
     background: #37474F;
 }
 
+h1 {
+    text-align: left;
+    line-height: 60vh;
+    font-family: '游明朝';
+    color: #FFFDF7;
+    padding-left: 20px;
+    font-size: 6rem;
+    letter-spacing: .3rem;
+}
+
 h2 {
     text-align: center;
     font-family: '游明朝';
@@ -20,10 +30,33 @@ h2 {
     color: #FFFDF7;
 }
 
+h3 {
+    text-align: center;
+    font-family: '游明朝';
+    font-size: 3rem;
+    line-height: 2.2rem;
+}
+
+h3 span {
+    font-family: '游明朝';
+    font-size: 1.3rem;
+    ;
+}
+
 p {
     font-size: 1.6rem;
     letter-spacing: .1em;
     line-height: 2.5rem;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+
+table td {
+    font-size: 1.6rem;
 }
 
 .fs-120 {
@@ -46,13 +79,17 @@ p {
     text-align: center;
 }
 
+.fw-bold {
+    font-weight: bold;
+}
+
 .con980 {
     width: 980px;
     margin: 0 auto;
 }
 
 @media screen and (max-width:980px) {
-    .con980{
+    .con980 {
         width: 90%;
     }
 }
@@ -259,33 +296,80 @@ p {
     margin: 0 auto;
 }
 
+[class*='flex-'] {
+    margin: 1rem 1rem 0 0;
+}
+
 .flex-1-2 {
     display: inline-block;
-    width: 50%;
+    width: calc(50% - 1rem);
 }
 
 .flex-1-3 {
     display: inline-block;
-    width: 33.3%;
+    width: calc(33.3% - 1rem);
 }
 
 .flex-2-3 {
     display: inline-block;
-    width: 66.6%;
+    width: clac(66.6% - 1rem);
 }
 
 .box-2 {
     display: inline-block;
     width: 50%;
-    height: 100vh;
+}
+
+@media screen and (max-width:576px) {
+    .flex-wrap {
+        display: block;
+    }
+
+    .flex-1-2 {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .flex-1-3 {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .flex-2-3 {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .box-2 {
+        display: block;
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+    }
 }
 
 /* ==========================
    header
 ========================== */
 
+#pc_header {
+    display: flex;
+}
+
+.openbtn {
+    display: none;
+}
+
+#g-nav {
+    display: none;
+}
+
 header {
     width: 100%;
+    height: auto;
     background: rgba(13, 20, 34, 0.8);
     display: none;
     position: fixed;
@@ -304,9 +388,15 @@ header .logo {
     text-align: left;
 }
 
+header .logo a {
+    color: #FFFDF7;
+    font-size: 2.8rem;
+    text-decoration: none;
+}
+
 .gnavi {
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: flex-end;
     margin: 0 auto;
     list-style: none;
 }
@@ -342,7 +432,185 @@ header .logo {
 }
 
 .gnavi .current {
-    color:#FF9E80;
+    color: #FF9E80;
+}
+
+@media screen and (max-width:576px) {
+    header {
+        height: 70px;
+    }
+
+    #pc_header {
+        display: none;
+    }
+
+    #g-nav.panelactive {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    /*丸の拡大*/
+    .circle-bg {
+        position: fixed;
+        z-index: 3;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #37474F;
+        transform: scale(0);
+        right: -50px;
+        top: -50px;
+        transition: all .6s;
+    }
+
+    .circle-bg.circleactive {
+        transform: scale(50);
+    }
+
+    #g-nav {
+        display: block;
+    }
+
+    #g-nav-list {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #g-nav.panelactive #g-nav-list {
+        display: block;
+    }
+
+    #g-nav ul {
+        opacity: 0;
+        position: absolute;
+        z-index: 999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #g-nav.panelactive ul {
+        opacity: 1;
+    }
+
+    #g-nav.panelactive ul li {
+        animation-name: gnaviAnime;
+        animation-duration: 1s;
+        animation-delay: .2s;
+        /*0.2 秒遅らせて出現*/
+        animation-fill-mode: forwards;
+        opacity: 0;
+    }
+
+    @keyframes gnaviAnime {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    #g-nav li {
+        text-align: center;
+        list-style: none;
+    }
+
+    #g-nav li a {
+        color: #FFFDF7;
+        font-family: '游明朝';
+        font-size: 1.6rem;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: bold;
+    }
+
+    #g-nav li a {
+        position: relative;
+    }
+
+    #g-nav li a::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        width: 80%;
+        height: 1px;
+        background: #FFFDF7;
+        transition: all .3s;
+        transform: scale(0, 1);
+        transform-origin: center top;
+    }
+
+    #g-nav li a:hover::after {
+        transform: scale(1, 1);
+    }
+
+    .openbtn {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 9999;
+        /*ボタンを最前面に*/
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+    }
+
+    /*×に変化*/
+    .openbtn span {
+        display: inline-block;
+        transition: all .4s;
+        position: absolute;
+        left: 14px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: #FFFDF7;
+        width: 45%;
+    }
+
+    .openbtn span:nth-of-type(1) {
+        top: 15px;
+    }
+
+    .openbtn span:nth-of-type(2) {
+        top: 23px;
+    }
+
+    .openbtn span:nth-of-type(3) {
+        top: 31px;
+    }
+
+    .openbtn.active span:nth-of-type(1) {
+        top: 18px;
+        left: 18px;
+        transform: translateY(6px) rotate(-45deg);
+        width: 30%;
+    }
+
+    .openbtn.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    .openbtn.active span:nth-of-type(3) {
+        top: 30px;
+        left: 18px;
+        transform: translateY(-6px) rotate(45deg);
+        width: 30%;
+    }
 }
 
 /* ==========================
@@ -350,30 +618,31 @@ header .logo {
 ========================== */
 
 .slider {
-    position:relative;
-      z-index: 1;
-      height: 100vh;
+    position: relative;
+    z-index: 1;
+    height: 100vh;
 }
-  /*　背景画像設定　*/
+
+/*　背景画像設定　*/
 .slider-item01 {
-    background:url(img/top.jpg);
+    background: url(img/top.jpg);
 }
-  
+
 .slider-item02 {
-    background:url(img/02.jpg);
+    background: url(img/02.jpg);
 }
-  
+
 .slider-item03 {
-    background:url(img/03.jpg);
+    background: url(img/03.jpg);
 }
 
 .slider-item04 {
-    background:url(img/04.jpg);
+    background: url(img/04.jpg);
 }
-  
+
 .slider-item {
     width: 100%;
-    height:100vh;
+    height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -423,10 +692,36 @@ header .logo {
     font-size: 5rem;
 }
 
-.mv img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+@media screen and (max-width:576px) {
+
+    /*　背景画像設定　*/
+    .slider-item01 {
+        background: url(img/top_sp.jpg);
+        background-repeat: no-repeat;
+    }
+
+    .slider-item02 {
+        background: url(img/02_sp.jpg);
+        background-repeat: no-repeat;
+    }
+
+    .slider-item03 {
+        background: url(img/03_sp.jpg);
+        background-repeat: no-repeat;
+    }
+
+    .slider-item04 {
+        background: url(img/04_sp.jpg);
+        background-repeat: no-repeat;
+    }
+
+    .mv .serif02 {
+        right: 20%;
+    }
+
+    .mv .logo {
+        top: 90%;
+    }
 }
 
 /* ==========================
@@ -456,10 +751,9 @@ header .logo {
 
 #news {
     padding-top: 100px;
-    height: 100vh;
 }
 
-ul.newsline{
+ul.newsline {
     list-style-type: none;
 }
 
@@ -468,35 +762,45 @@ ul.newsline{
 }
 
 .newsline li {
-    border-bottom:5px dotted #FFFDF7;
+    border-bottom: 5px dotted #FFFDF7;
     padding-top: 20px;
     display: flex;
 
 }
 
-.newsline li .day{
+.newsline li .day {
     width: 11%;
     display: inline-block;
-    color:#FFFDF7;
+    color: #FFFDF7;
     font-size: 1.6rem;
-    
+
 }
 
-.newsline li .title{
+.newsline li .title {
     width: 89%;
     display: inline-block;
 }
 
-.newsline li a{
-    color:#FFFDF7;
+.newsline li a {
+    color: #FFFDF7;
     text-decoration: none;
     font-size: 1.6rem;
     transition: all .4s;
     -webkit-transition: all .4s;
 }
 
-.newsline li a:hover{
+.newsline li a:hover {
     opacity: 0.6;
+}
+
+@media screen and (max-width:576px) {
+    .newsline li .day {
+        width: 20%;
+    }
+
+    .newsline li .title {
+        width: 80%;
+    }
 }
 
 /* ==========================
@@ -512,15 +816,11 @@ ul.newsline{
     background-size: cover;
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
 }
 
 .conceptBox {
-    padding: 20px;
-}
-
-.concepttext {
-    margin-top: 120px;
+    padding: 80px 20px;
 }
 
 /* ==========================
@@ -537,50 +837,56 @@ ul.newsline{
     font-size: 1.6rem;
 }
 
-#access a:hover{
+#access a:hover {
     text-decoration: underline;
 }
 
-#access p{
+#access p {
     text-align: left;
 }
 
-#access dl{
+#access dl {
     color: #FFFDF7;
     width: 100%;
 }
 
-#access dt{
+#access dt {
     float: left;
     font-size: 1.6rem;
     text-align: left;
-   
+
 }
 
-#access dd{
+#access dd {
     font-size: 1.6rem;
     text-align: left;
     margin-left: 80px;
+}
+
+@media screen and (max-width:576px) {
+    #access dl {
+        padding: 20px;
+    }
 }
 
 /* ==========================
    ページトップボタン
 ========================== */
 
-#page-top a{
-	display: flex;
-	justify-content:center;
-	align-items:center;
-	background: #FF9E80;
+#page-top a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FF9E80;
     color: #37474F;
-	border-radius: 50%;
-	width: 60px;
-	height: 60px;
-	text-align: center;
-	text-transform: uppercase; 
-	text-decoration: none;
-	font-size:0.6rem;
-	transition:all 0.3s;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.6rem;
+    transition: all 0.3s;
 }
 
 #page_top a i {
@@ -596,50 +902,54 @@ ul.newsline{
     text-align: center;
 }
 
-#page-top a:hover{
-	opacity: 0.6;
+#page-top a:hover {
+    opacity: 0.6;
 }
 
 /*リンクを右下に固定*/
 #page-top {
-	position: fixed;
-	right: 10px;
-	bottom:10px;
-	z-index: 2;
-	opacity: 0;
-	transform: translateY(100px);
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(100px);
 }
 
 /*　上に上がる動き　*/
 
-#page-top.UpMove{
-	animation: UpAnime 0.5s forwards;
+#page-top.UpMove {
+    animation: UpAnime 0.5s forwards;
 }
-@keyframes UpAnime{
-  from {
-    opacity: 0;
-	transform: translateY(100px);
-  }
-  to {
-    opacity: 1;
-	transform: translateY(0);
-  }
+
+@keyframes UpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /*　下に下がる動き　*/
 
-#page-top.DownMove{
-	animation: DownAnime 0.5s forwards;
+#page-top.DownMove {
+    animation: DownAnime 0.5s forwards;
 }
-@keyframes DownAnime{
-  from {
-  	opacity: 1;
-	transform: translateY(0);
-  }
-  to {
-  	opacity: 1;
-	transform: translateY(100px);
-  }
+
+@keyframes DownAnime {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(100px);
+    }
 }
 
 /* ==========================
@@ -656,4 +966,259 @@ footer {
     color: #FFFDF7;
     font-size: 1.6rem;
     font-family: '游明朝';
+}
+
+/* ==========================
+   メニュー
+========================== */
+
+#menu .menu_top {
+    background-image: url('img/menu.jpg');
+    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.menu_toast {
+    display: inline-block;
+    background: #FFFDF7;
+    color: #37474F;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 1rem 3rem;
+}
+
+.menu_plus {
+    color: #FFFDF7;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.drink {
+    font-size: 4rem;
+}
+
+.drink_menu {
+    background-image: url(img/coffee03.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 80px 0;
+    width: 100%;
+
+}
+
+.bg-w {
+    background: rgba(255, 253, 247, 0.8);
+    width: 980px;
+    margin: 0rem auto;
+    padding: 2rem;
+    padding-bottom: 200px;
+    position: relative;
+}
+
+.bg-w img {
+    position: absolute;
+    top: 30%;
+    right: -5%;
+    width: 40%;
+}
+
+.desertimage {
+    background-image: url('img/cake.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.desertBox {
+    padding: 100px 40px;
+}
+
+.alcohol_menu {
+    background-image: url(img/alcohol.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 80px 0;
+    width: 100%;
+}
+
+.bg_w {
+    background: rgba(255, 253, 247, 0.8);
+    width: 980px;
+    margin: 0rem auto;
+    padding: 3rem 6rem;
+}
+
+@media screen and (max-width:980px) {
+    .bg-w, .bg_w {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    #menu .menu_top {
+        background-image: url('img/menu_sp.jpg');
+        background-size: cover;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+    .bg-w {
+        padding-bottom: 20px;
+    }
+
+    .bg-w img {
+        top: 20%;
+    }
+}
+
+
+
+@media screen and (max-width:576px) {
+    .menu_toast, .menu_plus {
+        display: block;
+        padding: 1rem;
+    }
+
+    .bg-w {
+        padding-bottom: 200px;
+        width: 90%;
+        padding: 10px 0 200px 0;
+    }
+
+    .bg-w img {
+        width: 65%;
+        top: 55%;
+    }
+
+    .bg_w {
+        padding: 2rem;
+    }
+
+    .desertBox {
+        padding: 50px 10px;
+    }
+}
+
+/* ==========================
+   info
+========================== */
+
+.info_top {
+    background-image: url('img/info.jpg');
+    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+table.form {
+    border-collapse: separate;
+    border-spacing: 5rem;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 40px;
+}
+
+.form th {
+    width: 20%;
+    color: #FFFDF7;
+    text-align: left;
+    font-size: 2rem;
+    letter-spacing: .4rem;
+}
+
+.cp_iptxt {
+    position: relative;
+    width: 60%;
+    margin: 40px 3%;
+}
+
+.cp_iptxt select, .cp_iptxt option, .cp_iptxt textarea {
+    font: 15px/24px sans-serif;
+    width: 100%;
+    padding: 0.3em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    color: #37474F;
+    border: 1px solid #37474F;
+    border-radius: 4px;
+}
+
+.cp_iptxt input[type='text'] {
+    font: 15px/24px sans-serif;
+    width: 100%;
+    padding: 0.3em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    color: #FFFDF7;
+    border: 1px solid #FFFDF7;
+    border-radius: 4px;
+}
+
+.ef input[type='text']:focus, .ef textarea:focus {
+    border: 1px solid #FF9E80;
+    outline: none;
+    box-shadow: 0 0 5px 1px rgba(255, 158, 128, .5);
+}
+
+.button {
+    display: inline-block;
+    border-radius: 5%;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    background: #FF9E80;
+    color: #37474F;
+    line-height: 1.2rem;
+    transition: .3s;
+    margin: 0 2rem;
+}
+
+.button:hover {
+    opacity: .6;
+}
+
+@media screen and (max-width:1024px) {
+    .form th {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .info_top {
+        background-image: url('img/info_sp.jpg');
+    }
+
+    .cp_iptxt {
+        margin: 40px 0;
+    }
+
+    table.form {
+        border-collapse: separate;
+        border-spacing: 3rem;
+        width: 80%;
+        padding: 20px 0;
+    }
+
+    .form tr, .form th, .form td {
+        width: 100%;
+    }
+
+    .form th, .form td {
+        display: block;
+    }
+}
+
+@media screen and (max-width:576px) {
+
+    .cp_iptxt {
+        width: 80%;
+    }
 }
